@@ -1,0 +1,49 @@
+<script>
+function showValue(val) {
+	var element = document.getElementById('rangevalue');
+	element.innerHTML = 'I Agree : ' + val + '%';
+}
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46011123-1', 'auto');
+  ga('send', 'pageview');
+
+
+
+
+</script>
+
+<style>
+
+#qnText {
+    font-size: 20px;
+    text-align:center;
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+
+
+
+	<div id="wrapper" class="container">
+		<img id="blah" src="/images/questionSmallIcon.png" class="center" alt="your image" />
+		<div id="qnText">Feedback should be fast, fun and engaging?</div>
+		<div id="sliderHint">Drag the slider left or right to change percentage</div>
+		<div id="slider">
+			<br><br>
+				<input class="bar" id="rangeinput" type="range" name="value" value="50" min="0" max="100" step="1" onchange="showValue(this.value)" />
+				<br>
+    			<div id="rangevalue" align="center" >I Agree : 50%</div>
+			</div>
+			<br>
+
+	
+
+	
+
+

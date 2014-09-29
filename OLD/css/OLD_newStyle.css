@@ -1,0 +1,224 @@
+html, body {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 30px;
+	height:100%;
+	
+}
+
+a{
+color:#ccc;
+text-decoration:none;
+}
+a:hover {
+color:black;	
+}
+
+
+h1{
+font-size:22px;
+display:inline;
+}
+
+#topBar {
+	width:100%;
+	height:50px;
+	border:1px solid #ccc;
+	
+}
+#signin {
+	float:right;
+
+	font-size:20px;
+	margin-top:11px;
+	margin-right: 75px;
+}
+
+#enter-code {
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+#enter-code input {
+    font-size: 20px;
+}
+
+h2{
+font-size:18px;	
+}
+h3{
+	font-size:28px; 
+	text-align: center;
+	margin-bottom:2px;
+}
+
+#dataFrame{
+	width:300px;
+	height:300px;
+	display:inline-block;
+}
+
+#fpPicturePoint{
+	width:100%;
+	height:300px;
+	
+}
+
+#fpPpLText{display:inline; float:left; width:100%; font-size:20px; text-align: left;}
+#fpPpRText{display:inline; float:right; width:100%; font-size:20px; text-align: left;}
+
+#fpPpLText h2,#fpPpRText h2 {
+    font-size: 26px;
+}
+
+.settingsHeader{
+	font-size:24px;
+}
+
+.sectionHeader{
+	line-height: 35px;
+	margin: 10px;
+	text-align: center;
+	line-height:30px;
+	font-size: 32px;
+	
+   -moz-border-radius: 10px;
+   -webkit-border-radius: 10px;
+   border-radius: 10px; /* future proofing */
+   -khtml-border-radius: 10px; /* for old Konqueror browsers */
+}
+.round{
+	padding:15px;
+	border:1px solid #ccc;
+   -moz-border-radius: 10px;
+   -webkit-border-radius: 10px;
+   border-radius: 10px; /* future proofing */
+   -khtml-border-radius: 10px; /* for old Konqueror browsers */
+}
+
+
+div.round p {
+    font-size: 24px;
+}
+div.round ul li {
+    font-size: 22px;
+}
+
+#nav {
+	border:1px solid #ccc;
+	    border-width:1px 0;
+	    list-style:none;
+	    margin:15px 0px 15px 0px;
+	    padding:0;
+	    text-align:center;
+}
+#nav a{
+    display:inline-block;
+    padding:10px;
+}
+
+.navPoint{
+display:inline;
+}
+
+#footer {
+	
+	border:1px solid #ccc;
+	    border-width:1px 0;
+	    list-style:none;
+	    margin:15px 0px 15px 0px;
+	    padding:0;
+	    text-align:center;
+}
+#footer a{
+    display:inline-block;
+    padding:10px;
+}
+
+iframe {
+	display:none;		
+}
+
+@media screen and (min-width: 1053px){
+	#fpPpPic1{display:inline; float:left; width:50%; height:300px;background: url('../DYA_ipad.png') no-repeat 0px 0px;background-size: 60%;background-position:center;}
+	#fpPpPic2{display:inline; float:left; width:50%; height:300px;background: url('../DYA-iphone.jpg') no-repeat 0px 0px;background-size: 80%; background-position:center; }
+	#fpPpPic3{display:inline;float:right; width:50%; height:300px;background: url('../DYA-analytics.jpg') no-repeat 0px 0px;background-size: 60%; background-position:center; }
+	
+	#fpPpLText{display:inline; float:left; width:50%; font-size:20px; text-align: left;}
+	#fpPpRText{display:inline; float:right; width:50%; font-size:20px; text-align: left;}
+}
+
+@media screen and (min-width: 785px){
+	iframe {
+		display:block;
+		margin: 0 auto;	
+	}
+	html, body {
+		margin-left:35px;
+		margin-right:35px;
+	}
+	#enter-code {
+	    font-size: 40px;
+	    margin-top: 25px;
+	}
+	#enter-code input {
+	    font-size: 40px;
+	}
+	
+}
+
+@media screen and (min-width: 501px){
+
+	
+}
+/*Settings Screens layout*/
+
+
+/** clearfix **/
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+.clearfix { display: inline-block; }
+
+.setting {
+  display: block;
+  font-weight: normal;
+  padding: 7px 3px;
+  border-top: 1px solid #d6d1af;
+  margin-bottom: 5px;
+}
+.setting span {
+  float: left; 
+  width: 250px;
+  font-weight: bold;
+}
+.setting span img { 
+  cursor: pointer;
+}
+
+#content {
+  display: block;
+  width: 100%;
+  background: #fff;
+  padding: 25px 20px;
+  padding-bottom: 35px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+
+#userphoto {
+  display: block;
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 8px;
+}
+#userphoto img {
+  display: block;
+  padding: 2px;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+
+
+

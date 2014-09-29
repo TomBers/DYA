@@ -1,0 +1,54 @@
+#qnShare{
+	width:45%;
+	display:inline-block;
+	float:left;
+	text-align:center;
+}
+#qnPreview{
+	width:45%;
+	display:inline-block;
+	float:right;
+	height:100%;
+}
+h2{
+	font-size:22px;
+	text-align:center;
+	margin-bottom:30px;
+}
+#embedArea{
+
+width:400px;
+}
+#linkArea{
+	width:400px;
+}
+.questionType:hover{
+	border:1px solid black;
+}
+.stepHighlight{
+	font-size:18px;
+	margin-bottom:20px;
+	display:block;
+}
+#locationInfo{
+font-size:24px;
+text-align:center;
+}
+#shareSection{
+	margin-bottom:20px;
+	padding-bottom:20px;
+	border-bottom:2px solid black;
+}
+
+#anotherSurvey{
+	
+	width:100%;
+}
+#dashboard{
+	width:100%;
+}
+#whatnowtxt{
+	text-align:center;
+	font-size:22px;
+}
+textarea {resize:vertical}

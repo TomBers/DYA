@@ -1,0 +1,59 @@
+.btn{
+	margin-left:10px;
+	margin-bottom:10px;
+}
+
+#accordion a{
+	font-size:1.5em;
+}
+#pastQuestions{
+	border:1px solid #7f7f7f;
+	margin-right:50px;
+}
+#drawArea ul li {
+			    font-size: 1.4em;
+				list-style-type: none;
+				margin-right:25px;
+				display:inline-block;
+			}
+.chart-legend{
+	max-width:500px;
+}
+#downloadData{
+	margin-top:30px;
+
+}
+			#commentsContainer{
+							width:90%;
+							margin: 10 auto;
+
+
+						}
+						#commentsCount{
+
+							border-bottom:solid 3px #2C5D70;
+							margin-bottom:10px;
+						}
+						#comment img {
+							max-width:50px;
+							max-height:50px;
+							display:inline-block;
+
+						}
+						#comment{
+							margin-bottom:10px;
+						}
+						#commentName{
+							display:inline;
+							margin-left:10px;
+							font-weight:bold;
+						}
+						#commentUser{display:inline;}
+						#commentTxt{
+							display:block;
+							margin-left:60px;
+						}
+
+						h3:focus{
+						outline:none;
+						}

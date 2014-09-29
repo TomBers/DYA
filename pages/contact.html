@@ -1,0 +1,52 @@
+<script>
+
+function saveMessage(){
+
+
+
+	var name = $('#name').val();
+	var email = $('#email').val();
+	var cmmt = $('#comment').val();
+		var dataString = 'name='+name;
+		dataString += '&email='+email;
+		dataString += '&comments='+cmmt;
+		// alert(dataString);
+		$.ajax({
+				    type:'POST',
+				    data:dataString,
+				    url:'/pages/saveContacts.php',
+				    success:function(res) {
+					$('#button').attr("disabled", true);
+					$('#name').val('');
+					$('#email').val('');
+					$('#comment').val('');
+					alert('Thank you for your comment - it has been noted');
+				}
+				});
+}
+
+
+</script>
+
+
+<div id="contact" class="container">
+	<h1>Contact</h1>
+	<br>
+	<p>If you are interested in knowing more about DoYouAgree, or would like make a suggestion please get in touch using the form below.</p>
+	<br>
+
+	<input type="text" class="form-control" name="name" id="name" placeholder="Name"/>
+	<input type="email" class="form-control" name="email" id="email" placeholder="E-mail"/>
+	<textarea class="form-control" rows="4" cols="50" id="comment" placeholder="Comments"></textarea>
+	<br><br>
+
+
+
+	<input id="button" class="btn btn-lg btn-primary btn-block try-free" type="submit" value="Send" onclick="saveMessage()"/>
+
+
+	<div>
+		<br><br>
+		<p>If you have any problems - please contact <a href="mailto:tom@doyouagree.co.uk">tom@doyouagree.co.uk</a></p>
+</div>
+	</div>

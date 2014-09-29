@@ -1,0 +1,83 @@
+<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+<script>
+$( document ).ready(function() {
+// alert('started');
+	$.ajax({
+				type:'POST',
+				url:'getUsrs.php',
+					success:function(res) {
+					var select ='<select name="users" id="usrs" onchange="getQns(this)">';
+						var usrs = res.split("|");
+						select += '<option value=""></option>';
+						for(var person in usrs){
+							// console.log(person);
+							var nmeId = usrs[person].split(",");				
+							   select += '<option value="'+nmeId[1]+'">'+nmeId[0]+'</option>';
+						}
+						select += '</select>';
+						// console.log(select);
+							
+							$("#users").html(select);
+								}				
+			});
+			
+});
+
+function getQns(sel){
+	// alert(sel.value);
+	
+	var uid = sel.value;
+	var dataString="uid="+uid;
+            	$.ajax({
+        					type:'POST',
+        					data:dataString,
+        					url:'getUsrQns.php',
+        						success:function(res) {
+        								// alert(res);
+										$("#userQuestions").html(res);
+        									}				
+        				});
+}
+
+function clearData(cde){
+
+
+	 	var dataString="code="+cde;
+		$.ajax({
+					type:'POST',
+					data:dataString,
+					url:'clearQn.php',
+						success:function(res) {
+							var msg = "Cleared " + cde;
+								console.log(msg);
+
+									}				
+				});
+
+	
+}
+
+function handle(e){
+	if(e.keyCode === 13){
+		var uid = $("#userid").val();
+		var dataString="uid="+uid;
+	            	$.ajax({
+	        					type:'POST',
+	        					data:dataString,
+	        					url:'getUsrQns.php',
+	        						success:function(res) {
+	        								// alert(res);
+											$("#userQuestions").html(res);
+	        									}				
+	        				});
+	
+	        }
+
+	        return false;
+	
+}
+
+</script>
+
+<div id="users"></div>
+<div id="userQuestions"></div>

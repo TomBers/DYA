@@ -1,0 +1,46 @@
+<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+<script>
+$( document ).ready(function() {
+
+ 
+});
+
+function clearData(cde){
+	// alert(cde);
+	var dataString="id="+cde;
+	$.ajax({
+				type:'POST',
+				data:dataString,
+				url:'clearResponse.php',
+					success:function(res) {
+						var msg = "Cleared " + cde;
+							alert(msg);
+							
+								}				
+			});
+}
+
+function handle(e){
+	if(e.keyCode === 13){
+		var uid = $("#userid").val();
+		var dataString="uid="+uid;
+	            	$.ajax({
+	        					type:'POST',
+	        					data:dataString,
+	        					url:'getResponses.php',
+	        						success:function(res) {
+	        								// alert(res);
+											$("#userQuestions").html(res);
+	        									}				
+	        				});
+	
+	        }
+
+	        return false;
+	
+}
+
+</script>
+
+Enter QuestionID: <input type="text" id="userid" name="userid" onkeypress="handle(event)">
+<div id="userQuestions"></div>

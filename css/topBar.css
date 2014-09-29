@@ -1,0 +1,92 @@
+body{
+	font-family: 'Source Sans Pro', sans-serif;
+	color:#354353;
+}
+
+h1{
+	font-size:32px;
+	font-weight:700;
+}
+
+h2{
+	font-size:24px;
+	color:#f15c51;
+	font-weight:300;
+}
+h3{
+	fontsize:18px;
+	font-weight:700;
+}
+p{
+	font-weight:400;
+}
+
+.btn {border-radius: 0;}
+ul{
+	-webkit-padding-start:0px;
+}
+a.navbar-brand {
+    margin-bottom: 12px;
+}
+.container{
+/*	border:1px solid red;*/
+}
+#topNav{
+	background:white;
+	border:none;
+}
+
+#logo{
+	padding-top:80px;
+}
+#login{
+	position:absolute;
+	top:-75px;
+/*	left:-110px;*/
+	left:-75px;
+text-transform:lowercase;
+}
+
+
+
+.navbar-nav{
+	padding-top:95px;
+	padding-left:200px;
+}
+
+
+.navbar-nav ul{
+	padding-left:20px;
+}
+
+ul.nav.navbar-nav li a {
+	
+	text-transform:uppercase;
+/*    color: red;*/
+}
+
+ul.nav.navbar-nav li a:hover {color:#f15c51;}
+
+@media screen and (max-width: 1200px){
+	.navbar-nav{
+		
+		padding-left:0px;
+	}	
+}
+
+@media screen and (max-width: 768px){
+	.navbar-nav{
+		padding-top:0px;
+		padding-left:0px;
+	}
+	#logo{
+		padding-top:10px;
+	}
+	#login{
+		position:relative;
+		top:0px;
+		left:0px;
+	   text-transform:lowercase;
+	}	
+	
+}

@@ -1,0 +1,23 @@
+#qnForm{
+	display:block;
+	
+}
+
+#options{
+	display:block;
+	height: 125px;
+}
+
+#questionURL{
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+	height:100%;
+	text-align:center;
+}
+
+.questionType{
+	
+}
+.questionType:hover{
+	border:1px solid red;
+}

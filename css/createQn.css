@@ -1,0 +1,47 @@
+#button {
+	width:230px;
+	height:50px;
+}
+input[type=radio] {
+	width:20px;
+	height:20px;
+	display:inline-block;
+	margin-left:55px;
+}
+input[type=text] {
+	margin-top:10px;
+	width:680px;
+	display:inline;
+}
+#qOptions{
+	display:none;
+}
+
+#preview{
+	border:1px solid black;
+	padding:5px;
+}
+#edit{
+	display:inline;
+	font-size:14px;
+}
+#editBtn{
+	float:right;
+}
+#qnShare{
+	font-size:22px;
+	text-align:center;
+}
+#link{
+	border-top:3px solid black;
+	margin-top:20px;
+}
+#newQnInfo{
+	border-bottom:2px solid black;
+	padding-bottom:25px;
+	margin-bottom:25px;
+	
+}
+#askAnother{
+	test-align:center;
+}

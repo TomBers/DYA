@@ -1,0 +1,89 @@
+<!DOCTYPE html>	
+<html>
+	<head>
+	
+	<style>
+	.chart-legend {
+		clear:both;
+		display:block;
+	}
+	.chart-legend ul {
+	    list-style: none;
+	    width: 100%;
+	    margin: 20px auto 0;
+	}
+	
+		.chart-legend li {
+			white-space:nowrap;
+		    display: inline-block;
+			margin-right:20px;
+		    float: left;
+		    font-size: 1.2em;
+		}
+	#noResponses{
+		clear:both;
+		text-align:center;
+		font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+	}
+	</style>
+	
+	
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>	
+		<script src="socket.io/socket.io.js"></script>
+		<script src="http://www.doyouagree.co.uk/js/Chart.js"></script>
+		<script src="http://www.doyouagree.co.uk/UX/dya.js"></script>
+
+	<script>
+
+		// creating a new websocket
+	  	var socket = io.connect('http://www.doyouagree.co.uk:8000/');
+		var oldData = 0;
+		
+		socket.on('connect', function () {
+			var slid = getUrlVars()["slider"];
+			
+			if(!slid){slid=false;}
+			else {slid = true;}
+			// console.log(slid);
+			socket.emit('url',getUrlVars()["code"])
+			socket.emit('slider',slid);
+		});
+		
+		
+	  	// on message recived we print the new data inside the #container div
+	  	socket.on('notification', function (data) {
+			
+			// console.log(data['users']);
+
+		 	var dat = data['users'];
+			//console.log(dat[0]['COUNT(distinct responses.user,responses.timeStamp)']);
+			
+			if(dat[0]['COUNT(*)'] != oldData){
+				drawOptions(dat,'drawArea','1','0','0');
+				oldData = dat[0]['COUNT(*)'];
+		}
+	
+
+				// End of Method
+				});	
+		
+	function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+    }
+
+
+	</script>
+
+<body>
+	
+	<div id="drawArea">
+			
+		</div>
+		<div id="image_key"></div>
+
+	</body>
+</html>

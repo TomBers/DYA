@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	</head>
+<body>
+
+<script>
+var first = [];
+var second = [];
+var third = [];
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+
+	
+	
+	$('.first').change(function() {
+		if ($(this).is (':checked')){
+			first.push($(this).val());	
+		}
+		else{
+			var index = first.indexOf($(this).val());
+			first.splice(index, 1);
+			}
+			calcRank()
+	});
+	
+	$('.second').change(function() {
+		if ($(this).is (':checked')){
+			second.push($(this).val());	
+		}
+		else{
+			var index = second.indexOf($(this).val());
+			second.splice(index, 1);
+			}
+			calcRank()
+	});
+	
+	$('.third').change(function() {
+		if ($(this).is (':checked')){
+			third.push($(this).val());	
+		}
+		else{
+			var index = third.indexOf($(this).val());
+			third.splice(index, 1);
+			}
+			calcRank()
+	});
+
+});
+
+function calcRank(){
+
+
+	var rank = {};
+	rank["A"] = 0;
+	rank["B"] = 0;
+	rank["C"] = 0;
+	rank["D"] = 0;
+	
+	var multiplier = 5;
+	first.forEach(function(entry){
+		rank[entry] += multiplier;
+		multiplier--;
+	});
+	
+	var multiplier = 5;
+	second.forEach(function(entry){
+		rank[entry] += multiplier;
+		multiplier--;
+	});
+	
+	var multiplier = 5;
+	third.forEach(function(entry){
+		rank[entry] += multiplier;
+		multiplier--;
+	});
+	
+	var order = [];
+	var sortedOrd = "Order of Preference : ";
+	for (var key in rank)
+	      order.push([key, rank[key]])
+	order.sort(function(a, b) {return b[1] - a[1] })
+	
+	order.forEach( function(ord){
+		console.log(ord[0]);
+		sortedOrd += ord[0];
+		
+	});
+	
+	$('#result').html(sortedOrd);
+	console.log(rank);
+	
+}
+
+
+
+
+</script>
+
+<form action="">
+<input type="checkbox" class="first" name="first" value="A">A<br>
+<input type="checkbox" class="first" name="first" value="B">B<br>
+<input type="checkbox" class="first" name="first" value="C">C<br>
+<input type="checkbox" class="first" name="first" value="D">D <br><br>
+
+
+<input type="checkbox" class="second" name="second" value="A">A<br>
+<input type="checkbox" class="second" name="second" value="B">B<br>
+<input type="checkbox" class="second" name="second" value="C">C<br>
+<input type="checkbox" class="second" name="second" value="D">D <br><br>
+
+<input type="checkbox" class="third" name="third" value="A">A<br>
+<input type="checkbox" class="third" name="third" value="B">B<br>
+<input type="checkbox" class="third" name="third" value="C">C<br>
+<input type="checkbox" class="third" name="third" value="D">D <br><br>
+
+</form>
+
+<div id='result'></div>
+
+</body>
+</html>

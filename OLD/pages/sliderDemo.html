@@ -1,0 +1,38 @@
+<script>
+function showValue(val) {
+	var element = document.getElementById('rangevalue');
+	element.innerHTML = 'I Agree : ' + val + '%';
+}
+
+</script>
+</script>
+
+<style>
+
+#qnText {
+    font-size: 20px;
+    text-align:center;
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/UI/button.css">
+
+
+
+	<div id="wrapper">
+		<img id="blah" src="/images/questionSmallIcon.png" class="center" alt="your image" />
+		<div id="qnText">Feedback should be fast, fun and Engaging?</div>
+	
+		<div id="slider">
+			<br><br>
+				<input class="bar" id="rangeinput" type="range" name="value" value="50" min="0" max="100" step="1" onchange="showValue(this.value)" />
+				<br>
+    			<div id="rangevalue" align="center" >I Agree : 50%</div>
+			</div>
+			<br>
+
+	
+
+	
+</div>

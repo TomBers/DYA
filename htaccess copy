@@ -1,0 +1,14 @@
+# Enable Rewriting
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteRule .* https://www.doyouagree.co.uk%{REQUEST_URI} [last] 
+# Rewrite user URLs
+#   Input:  user/NAME/
+#   Output: user.php?id=NAME
+RewriteRule ^ask QM2/cQn.php?new=true&ModPagespeed=off
+RewriteRule ^edit/(\w+)?$ QM2/cQn.php?ModPagespeed=off&edit=$1
+RewriteRule ^liveView/(\w+)?$ LV/lv.php?code=$1
+RewriteRule ^LB/(\w+)?$ quiz/leaderboard.php?quiz=$1
+RewriteRule ^MV/(\w+)?$ UX/DYA_MV.php?code=$1
+RewriteRule ^(\w+)/?$ UX/DYA_SV.php?code=$1
+#ModPagespeed off

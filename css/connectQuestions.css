@@ -1,0 +1,61 @@
+	thead{
+		font-size:22px;
+	}
+	#codeHighlight{
+		font-size:24px;
+	}
+	
+	input[type="button"]{
+		width:100%;
+	}
+	
+		.connected li, .sortable li, .exclude li, .handles li {
+			list-style: none;
+			border: 1px solid #CCC;
+			background: #F6F6F6;
+			font-family: "Tahoma";
+			color: #1C94C4;
+			margin: 5px;
+			padding: 5px;
+		
+		}
+		.handles span {
+			cursor: move;
+		}
+	
+		.sortable.grid li {
+			float: left;
+			text-align: center;
+		}
+		li.highlight {
+			background: #FEE25F;
+		}
+		ul.sortable.list li {
+		    line-height: 14px;
+		}
+	
+		.qn{
+			display:inline-block;
+			width:90%;
+		}
+		.group{
+				display:inline-block;
+				width:7%;
+		}
+		.remove{
+				display:inline-block;
+			float:right;
+			color:red;
+		}
+	
+	
+		
+		#rcol{
+/*			border:1px solid red;*/
+		}
+		#qns{
+			border:1px solid #7F7F7F;
+		}
+		#submitButton{
+		float:right;	
+		}

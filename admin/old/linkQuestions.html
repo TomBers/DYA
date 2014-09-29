@@ -1,0 +1,231 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	<title>Link Questions</title>
+	<style>
+		header, section {
+			display: block;
+		}
+		body {
+			font-family: 'Droid Serif';
+		}
+		h1, h2 {
+			text-align: center;
+			font-weight: normal;
+		}
+		#features {
+			margin: auto;
+			width: 460px;
+			font-size: 0.9em;
+		}
+		.connected, .sortable, .exclude, .handles {
+			margin: auto;
+			padding: 0;
+			width: 310px;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		.sortable.grid {
+			overflow: hidden;
+		}
+		.connected li, .sortable li, .exclude li, .handles li {
+			list-style: none;
+			border: 1px solid #CCC;
+			background: #F6F6F6;
+			font-family: "Tahoma";
+			color: #1C94C4;
+			margin: 5px;
+			padding: 5px;
+			height: 22px;
+		}
+		.handles span {
+			cursor: move;
+		}
+		li.disabled {
+			opacity: 0.5;
+		}
+		.sortable.grid li {
+			line-height: 80px;
+			float: left;
+			width: 80px;
+			height: 80px;
+			text-align: center;
+		}
+		li.highlight {
+			background: #FEE25F;
+		}
+		#connected {
+			width: 440px;
+			overflow: hidden;
+			margin: auto;
+		}
+		.connected {
+			float: left;
+			width: 200px;
+		}
+		.connected.no2 {
+			float: right;
+		}
+		li.sortable-placeholder {
+			border: 1px dashed #CCC;
+			background: none;
+		}
+		.remove{
+			display:inline;
+			float:right;
+			color:red;
+		}
+	</style>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	<div id="users"></div>
+	<div id="userQuestions"></div>
+	
+	<section>
+		<div id="qns">
+		</div>
+		<input type="button" value=">>" onclick="addToList()">
+	</section>
+	<section>
+		<ul id="sortedlist" class="sortable list">
+			
+		</ul>
+	</section>
+    <input type="submit" onclick="showorder()">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="/js/jquery.sortable.js"></script>
+	<script>
+	$( document ).ready(function() {
+	// alert('started');
+		$.ajax({
+					type:'POST',
+					url:'getUsrs.php',
+						success:function(res) {
+						var select ='<select name="users" id="usrs" onchange="getQns(this)"><option value=""></option>';
+							var usrs = res.split("|");
+
+							for(var person in usrs){
+								// console.log(person);
+								var nmeId = usrs[person].split(",");				
+								   select += '<option value="'+nmeId[1]+'">'+nmeId[0]+'</option>';
+							}
+							select += '</select>';
+							// console.log(select);
+
+								$("#users").html(select);
+									}				
+				});
+
+	});
+
+	function getQns(sel){
+		// alert(sel.value);
+
+		var uid = sel.value;
+		var dataString="uid="+uid;
+	            	$.ajax({
+	        					type:'POST',
+	        					data:dataString,
+	        					url:'getQns.php',
+	        						success:function(res) {
+											res = res.replace(/,\s*$/, "");
+	        								// alert(res);
+											var allQns ="";
+											var qns = res.split(",");
+											
+											for(var v in qns){
+												console.log(qns[v]);
+												allQns += '<span><input type="checkbox" name="qn" value="'+qns[v]+'"><a href="http://www.doyouagree.co.uk/'+qns[v]+'"/ target="_blank" >'+qns[v]+'</a><br></span>';
+												
+											}
+											
+											$("#qns").html(allQns);
+	        									}				
+	        				});
+	}
+	
+	function removeItem(item){
+		
+		var returnedItem = '<span><input type=\"checkbox\" name=\"qn\" value=\"'+item.id+'\" ><a href="http://www.doyouagree.co.uk/'+item.id+'" target="_blank">'+item.id+'</a><br></span>';
+		$('#qns').append(returnedItem);
+		
+		$(item).parent('li').remove();
+		// alert(item.parent('li'));
+		// $(item.id).parent('li').remove();
+	}
+	
+	$(".remove").click(function(e) {
+	    // alert( this.id );
+	removeItem(this);
+			// var listAdd='<li>'+$(this).val()+'</li>'; 
+			// $('#sortedlist').append(listAdd);
+		
+	});
+
+    	function addToList(){
+			
+			$('#qns :checked').each(function() {
+			       // alert($(this).val());
+					qnID=$(this).val();
+					var listAdd='<li>'+qnID+'<div class=\"remove\" id='+qnID+' onclick=\"removeItem('+qnID+')\">X</div></li>'; 
+					$('#sortedlist').append(listAdd);
+					
+					$(this).parent('span').remove();
+					
+			     });
+			
+					$('.sortable').sortable();
+					$('.handles').sortable({
+						handle: 'span'
+					});
+					$('.connected').sortable({
+						connectWith: '.connected'
+					});
+					$('.exclude').sortable({
+						items: ':not(.disabled)'
+					});
+		}
+
+        function showorder()
+        {
+			var r=confirm("Are you sure you want to change the order of these questions?");
+			if (r==true)
+			  {
+			var optionTexts = [];
+			$("ul li").each(function() { optionTexts.push($(this).text().slice(0, -1)) });
+            
+			var dataString =JSON.stringify(optionTexts);
+			$.ajax({
+					    type:'POST',
+					    data:{data : dataString},
+					    url:'setOrder.php',
+					    success:function(res) {
+						alert(res)
+						}
+					});
+				}
+				
+
+        }
+			$(function() {
+				$('.sortable').sortable();
+				$('.handles').sortable({
+					handle: 'span'
+				});
+				$('.connected').sortable({
+					connectWith: '.connected'
+				});
+				$('.exclude').sortable({
+					items: ':not(.disabled)'
+				});
+			});
+	</script>
+
+</body>
+</html>

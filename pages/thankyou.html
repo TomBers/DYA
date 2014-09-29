@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> <meta name="apple-mobile-web-app-capable" content="yes" />
+<title>DoYouAgree</title>
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">
+stLight.options({publisher: "30b19eb7-9e7b-45e5-a058-70ab98f65639", doNotHash: true, doNotCopy: false, hashAddressBar: false});
+</script>
+
+
+<script>
+
+var qn = getCookie('currentQz');
+
+setCookie('usrLstQn','');
+setCookie('currentQz','');
+
+
+function getCookie(cname)
+{
+var name = cname + "=";
+var ca = document.cookie.split(';');
+for(var i=0; i<ca.length; i++) 
+  {
+  var c = ca[i].trim();
+  if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+  }
+return "";
+}
+
+function setCookie(cname,cvalue)
+{
+var exdays = 3;
+var d = new Date();
+d.setTime(d.getTime()+(exdays*24*60*60*1000));
+var expires = "expires="+d.toGMTString();
+document.cookie = cname + "=" + cvalue + ";expires=" + expires + ";domain=.doyouagree.co.uk;path=/";
+}
+
+
+</script>
+
+
+</head>
+<style>
+#thankyouwrapper{
+	text-align:center;
+	padding-top:50px;
+}
+.take-tour { 
+  color: #ffffff; 
+  background-color: #354353; 
+  border:none;
+font-family:sans-serif;
+width:150px;
+height:45px;
+} 
+ 
+.take-tour:hover, 
+.take-tour:focus, 
+.take-tour:active, 
+.take-tour.active, 
+.open .dropdown-toggle.take-tour { 
+  color: #ffffff; 
+  background-color: #0F243B; 
+  border-color: #FFFFFF; 
+} 
+ 
+.take-tour:active, 
+.take-tour.active, 
+.open .dropdown-toggle.take-tour { 
+  background-image: none; 
+} 
+ 
+.take-tour.disabled, 
+.take-tour[disabled], 
+fieldset[disabled] .take-tour, 
+.take-tour.disabled:hover, 
+.take-tour[disabled]:hover, 
+fieldset[disabled] .take-tour:hover, 
+.take-tour.disabled:focus, 
+.take-tour[disabled]:focus, 
+fieldset[disabled] .take-tour:focus, 
+.take-tour.disabled:active, 
+.take-tour[disabled]:active, 
+fieldset[disabled] .take-tour:active, 
+.take-tour.disabled.active, 
+.take-tour[disabled].active, 
+fieldset[disabled] .take-tour.active { 
+  background-color: #354353; 
+  border-color: #FFFFFF; 
+} 
+ 
+.take-tour .badge { 
+  color: #354353; 
+  background-color: #ffffff; 
+}
+#buton_1{
+	display:block;
+	clear:both;
+	min-height:50px;
+	border:2pc solid red;
+}
+</style>
+
+<body>
+<div id="thankyouwrapper">
+	<img src="/images/dya_logo.png">
+
+	
+		<h1>Thank You</h1>
+		<p>The survey has now ended </p>
+		<br>
+		<span id="button_1"></span>
+		<script>
+	
+		function erase_cookie(name) {
+		    createCookie(name,"",-1);
+		}
+		function createCookie(name,value,days) {
+		    if (days) {
+		        var date = new Date();
+		        date.setTime(date.getTime()+(days*24*60*60*1000));
+		        var expires = "; expires="+date.toGMTString();
+		    }
+		    else var expires = "";
+		    document.cookie = name+"="+value+expires+"; path=/";
+		}
+		
+		erase_cookie('currentQz');
+		erase_cookie('usrLstQn');
+		
+		
+		         stWidget.addEntry({
+		                 "service":"sharethis",
+		                 "element":document.getElementById('button_1'),
+		                 "url":"https://www.doyouagree.co.uk/"+qn,
+		                 "title":"DoYouAgree",
+		                 "type":"large",
+		                 "text":"DoYouAgree" ,
+		                 "image":"https://www.doyouagree.co.uk/images/dya_logo.png",
+		                 "summary":"I have just completed a DoYouAgree question - click to see if you agree"
+		         });
+		</script>
+		
+		<a href="https://www.doyouagree.co.uk"> <button type="button" class="take-tour">Finish</button></a>
+	
+</div>
+</body>
+</html>

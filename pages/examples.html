@@ -1,0 +1,115 @@
+<style>
+.carousel-control{
+	width:2%;
+}
+.carousel-control.left{
+	background:none;
+}
+
+.carousel-control.right{
+	background:none;
+}
+#examples-carousel{
+	margin-top:20px;
+}
+
+.item{
+	height:350px;
+}
+
+.center{
+	text-align:center;
+	margin:0 auto;
+}
+</style>
+
+<script>
+  $(document).ready(function(){
+    $('.carousel').carousel({
+      interval: 5000
+    });
+  });
+</script>
+
+
+<a id="examples"></a>
+<div class="container">
+<h1>Examples</h1>	
+<div class="col-sm-6">
+	<div id="examples-carousel" class="carousel slide"><!-- class of slide for animation -->
+	  <div class="carousel-inner">
+	    <div class="item active"><!-- class of active since it's the first item -->
+	      <img class="center" src="/images/examples/eg1.png">
+	      <div class="carousel-caption">
+	      </div>
+	    </div>
+	    <div class="item">
+	      <img class="center" src="/images/examples/eg2.png">
+	    </div>
+	    <div class="item">
+	       <img class="center" src="/images/examples/eg3.png">
+	    </div>
+		   <div class="item">
+		      <img class="center" src="/images/examples/eg4.png">
+		    </div>
+			   <div class="item">
+			      <img class="center" src="/images/examples/eg5.png">
+			    </div>
+				<div class="item">
+				      <img class="center" src="/images/examples/eg6.jpg">
+				    </div>
+					<div class="item">
+					      <img class="center" src="/images/examples/eg7.jpg">
+					    </div>
+						<div class="item">
+						      <img class="center" src="/images/examples/eg8.png">
+						    </div>
+	  </div><!-- /.carousel-inner -->
+	  <!--  Next and Previous controls below
+	        href values must reference the id for this carousel -->
+	    <a class="carousel-control left" href="#examples-carousel" data-slide="prev">&lsaquo;</a>
+	    <a class="carousel-control right" href="#examples-carousel" data-slide="next">&rsaquo;</a>
+	</div><!-- /.carousel -->
+	</div>
+	<div class="col-sm-6">
+		<div id="industries">
+		<h2>Industries</h2>
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+							          EVENTS
+							        </a>
+						</h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<p>Questions (voting, rankings, multiple/single choice or comments) are set by organisations and can be accessed by respondents by an event code and the results are available immediately and updated in real time.</p>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+							          RETAIL
+							        </a>
+						</h4>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse">
+						<div class="panel-body">
+							<p>Get feedback (answers) to the questions key to your organisation.</p>
+							 <ul>
+						        <li>lets you know of areas where you may be able to improve - meaning happier customers who return more often.</li>
+						        <li>can identify any problems or distracting behavior</li>
+						        <li>gives you an idea of how you are going from the audiences perspective, which is usually a lot better than you give yourself credit for</li>
+						      </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		</div>
+</div>

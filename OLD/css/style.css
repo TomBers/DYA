@@ -1,0 +1,429 @@
+html, body {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+	height:100%;
+
+}
+
+
+a{
+color:black;
+text-decoration:none;
+}
+h1{
+font-size:22px;
+}
+
+h2{
+font-size:18px;	
+}
+h3{
+	font-size:28px; 
+	text-align: center;
+	margin-bottom:2px;
+}
+
+#canvas-container {
+   width: 100%;
+   text-align:center;
+}
+
+
+#aboutContainer{
+	width:100%;
+	display:inline-block;
+}
+#aboutTom{
+	width:50%;
+
+ float:left;
+}
+
+#sliderHint{
+	font-size:11px;
+	color:#555555;
+	text-align:center;
+	margin-bottom:40px;
+}
+#qnText {
+    font-size: 20px;
+    text-align:center;
+}
+#aboutSarah{
+	width:50%;
+	
+float:right;
+
+}
+canvas {
+   display: inline;
+}
+
+#key{
+	margin-bottom:15px;
+}
+
+#fpPicturePoint{
+	display:block;
+	height:250px;
+	
+}
+
+#emailMsg{
+	text-align:center;
+	font-size: 20px;
+	
+}
+#nospamMsg{
+	text-align:center;
+}
+
+#fpPpLText{display:inline; float:left; width:49%; }
+#fpPpRText{display:inline; float:right; width:50%;}
+
+#frontBullets ul{
+	margin-top:10px;
+	font-size:18px;
+	
+}
+#comment {
+	margin-bottom:20px;
+	margin-top:5px;
+	font-size: 20px;
+	
+}
+
+input[type=submit]{
+	
+	font-size: 18px;
+}
+
+
+#nav {
+	border:1px solid #ccc;
+	    border-width:1px 0;
+	    list-style:none;
+	    margin:15px 0px 15px 0px;
+	    padding:0;
+	    text-align:center;
+}
+#nav a{
+    display:inline-block;
+    padding:10px;
+}
+
+.navPoint{
+display:inline;
+}
+
+#enter-code{
+
+font-size: 24px;
+
+
+}
+
+#enter-code input {
+    line-height: 36px;
+    font-size: 24px;
+    
+    width: 10em;
+	float:both;
+}
+#submit-button{
+	
+	margin:20px 0px 0px 0px;
+}
+
+/* custom button code for the conversionbutton on features page */
+.btn-custom {
+  background-color: hsl(196, 60%, 44%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#43aad0", endColorstr="#2c8fb3");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#43aad0), to(#2c8fb3));
+  background-image: -moz-linear-gradient(top, #43aad0, #2c8fb3);
+  background-image: -ms-linear-gradient(top, #43aad0, #2c8fb3);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #43aad0), color-stop(100%, #2c8fb3));
+  background-image: -webkit-linear-gradient(top, #43aad0, #2c8fb3);
+  background-image: -o-linear-gradient(top, #43aad0, #2c8fb3);
+  background-image: linear-gradient(#43aad0, #2c8fb3);
+  border-color: #2c8fb3 #2c8fb3 hsl(196, 60%, 41.5%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.16);
+  -webkit-font-smoothing: antialiased;
+}
+
+
+#options {
+    height: 40px;
+    width: 100%;
+    position: relative;
+}
+
+.nextQuestion {
+	position: absolute;
+	  top: 3px;
+	  right: 8px;
+	
+	cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
+	padding:5px 25px; /*add some padding to the inside of the button*/
+	background:#0071BC; /*the colour of the button*/
+	border:1px solid #398CE4; /*required or the default border for the browser will appear*/
+	/*give the button curved corners, alter the size as required*/
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	/*give the button a drop shadow*/
+	-webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+	-moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+	box-shadow: 0 0 4px rgba(0,0,0, .75);
+	/*style the text*/
+	color:#f3f3f3;
+	font-size:1.1em;
+	}
+	/***NOW STYLE THE BUTTON'S HOVER AND FOCUS STATES***/
+	input#nextQuestion:hover, input#nextQuestion:focus{
+	background-color :#1D6DF1; /*make the background a little darker*/
+	/*reduce the drop shadow size to give a pushed button effect*/
+	-webkit-box-shadow: 0 0 1px rgba(0,0,0, .75);
+	-moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
+	box-shadow: 0 0 1px rgba(0,0,0, .75);
+	
+}
+
+
+
+
+#dashBkgrd{
+	background:white;
+}
+
+#page-wrap h1 {
+    font-size: 22px;
+    text-transform: capitalize;
+}
+
+#page-wrap h2 {
+	
+    font-size: 18px;
+    padding-right: 10px;
+}
+#page-wrap a {
+    padding-right: 10px;
+}
+
+
+#rangevalue {
+    
+    font-size: 26px;
+    text-transform: none;
+    margin-top: 13px;
+}
+input.center_button { 
+
+display: block;
+		margin-left: auto ;
+  			margin-right: auto ;
+
+}
+
+#fbDiv{
+    display:block;
+   
+    height:70px
+}
+
+#questionText{
+	text-align:center;
+	font-size: 14px;
+	font-family: Helvetica;
+	margin-top: 7px;
+	
+}
+
+#keyAgree{
+  
+font-size: 30px;
+font-weight: bold;
+color: #d11bd1;
+float:right;
+	
+}
+#keyDisagree {
+
+font-size: 30px;
+font-weight: bold;
+color: #452feb;
+}
+
+#title{
+text-align:center;
+font-size: 28px;
+font-family: Helvetica;
+font-weight: bold;
+
+}
+#codeHeader{
+text-align:center;
+font-family: Helvetica;
+font-weight: normal;
+font-size: 32px;
+
+}
+#response{
+text-align:center;
+}
+#bigGraphContainer {
+   width: 100%;
+   text-align:center;
+}
+
+canvas {
+   display: inline;
+}
+
+#wrapper {
+	max-width: 960px;
+	
+}
+
+#thankyouwrapper {
+	margin:0 auto;
+	text-align: center;
+	
+}
+
+#thankyouwrapper img {
+
+	margin-top: 20px;
+}
+#thankyouwrapper h1 {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-style: strong;
+	font-size: 30px;
+
+}
+#thankyouwrapper p {
+	font-size: 20px;
+	font-family: "Helvetica Neue Light",Helvetica,Arial,sans-serif;
+
+}
+
+#thankyouwrapper .btn-custom {
+
+	width: 300px;
+	margin-top: 10px;
+}
+
+#slider .bar {
+	width: 100%;
+	webkit background:red;
+
+}
+@media screen and (-webkit-min-device-pixel-ratio:0){
+#slider .bar {
+	background:gray;
+}
+}
+
+
+input[type="range"] {
+	-webkit-appearance: none;
+	height: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	position: relative;
+	top: 0px;
+	z-index: 1;
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	border: 0px;
+	background-image: url(/images/slider_icon3.png)
+	
+}
+
+input:focus{
+outline:none;
+}
+	
+
+@media screen and (min-width: 501px){
+
+
+		body{
+		background-color:white;
+	}
+	
+		#page-wrap { position: relative; width: 600px; margin: 0px auto; padding: 20px; 
+			background-color:white;
+			-moz-box-shadow: 0 0 20px black; -webkit-box-shadow: 0 0 20px black; box-shadow: 0 0 20px black; 
+			}
+		
+		#HPpage-wrap{
+			position: relative; width: 600px; margin: 0px auto; padding: 20px; 
+				background-color:white;
+				background-size:100% 100%;
+				background-repeat:no-repeat;
+				-moz-box-shadow: 0 0 20px black; -webkit-box-shadow: 0 0 20px black; box-shadow: 0 0 20px black;
+			
+		}
+		#slider .bar {
+			width: 60%;
+			webkit background:red;
+			margin: 0 auto;
+		}
+		
+
+}
+@media only screen and (min-width: 320px) and (max-width: 500px) {
+		body{
+		background-color:white;
+	}
+	
+		
+	
+		
+	}	
+	
+
+
+
+	
+	
+		img.logo {
+		position: relative;
+		left: 0%;
+		}
+		
+		img.points {
+		position :relative;
+		left: 10px;
+		
+		}
+		
+	
+
+		img.center {
+		display: block;
+		margin-left: auto ;
+  			margin-right: auto ;
+			max-width: 200px; 
+			max-height: 200px;
+		}
+		
+	
+		
+		
+		
+#centerEventView{
+position: relative; width: 1024px; margin: 0px auto; padding: 0px; background: white; 
+}
+
+	
+		p { 
+			
+			 margin: 0 0 30px 0; }
+

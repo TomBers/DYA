@@ -1,0 +1,107 @@
+
+h1{
+/*	font-size:122px;*/
+
+}
+
+.btn-primary, #button, #askAnother, .btn-success, #nxtBtn, .btn-block{
+	background-color: #ffffff;
+	color: #354353;
+	border-width: 2px;
+	border-color: #354353;
+	font-weight: 700;
+	margin-bottom:20px;
+}
+
+.btn-primary:hover, #button:hover, #askAnother:hover, .btn-success:hover, #nxtBtn:hover, .btn-block{
+color: #ffffff;
+background-color: #0F243B;
+border-color: #FFFFFF;
+}
+
+.btn-warning{
+	background-color: #ffffff;
+	color: #f0ad4e;
+	border-width: 2px;
+	border-color: #f0ad4e;
+	font-weight: 700;
+	margin-bottom:20px;
+
+}
+
+.btn-warning:hover{
+	color: #ffffff;
+	background-color: #f0ad4e;
+	border-color: #FFFFFF;
+
+}
+
+.btn-danger{
+	background-color: #ffffff;
+	color: #d9534f;
+	border-width: 2px;
+	border-color: #d9534f;
+	font-weight: 700;
+	margin-bottom:20px;
+
+}
+
+.btn-danger:hover{
+	color: #ffffff;
+	background-color: #d9534f;
+	border-color: #FFFFFF;
+
+}
+
+
+
+.form-control{
+	border-radius: 0;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
+
+.btn-success, .btn-warning, .btn-danger{  /* temporary till buttons rearranged */
+	margin-bottom: 20px;
+}
+
+/* dashboard */
+#accordion a{
+	border-bottom: 1px solid #354353;
+	padding: 10px;
+	width: 100%;
+	display: block;
+	font-weight:700;
+	font-size:18px;
+	color:#bcbcba;
+}
+
+#accordion a:hover{
+	text-decoration:none;
+}
+
+#drawArea_canvas{
+	float: left;
+	margin-bottom: 20px;
+}
+
+#drawArea_key{
+	float:left;
+}
+
+#drawArea ul li{
+	float: none;
+	display: block;
+}
+
+#downloadData{
+	clear:both;
+}
+
+#noResponses{
+	margon-top:40px;
+}
+
+#canvas-container h3{
+	text-align:center;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<style>
+	img{
+		position:absolute;
+		top:0px;
+		left:0%;
+	}
+	.form-item{
+		margin:0 auto;
+	}
+	form{
+		position:relative;
+		margin:30px auto;
+	}
+	.farbtastic {
+	margin: 0 auto;
+	</style>
+ <title>Farbtastic</title>
+ <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+ <script type="text/javascript" src="farbtastic.js"></script>
+
+ <link rel="stylesheet" href="farbtastic.css" type="text/css" />
+ <script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $('#demo').hide();
+    $('#picker').farbtastic('#color');
+  });
+ </script>
+</head>
+<body>
+
+<form action="" style="width:300px">
+  <div class="form-item"><input type="text" id="color" name="color" style="width:100%;border:none;padding:0px;width:300px;height:249px" value="" /></div><div id="picker"></div>
+<img src="KickStater.png">
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	<title>Edit Quiz</title>
+
+
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+
+</head>
+<style>
+b{
+	margin-left:5px;
+	margin-right:5px;
+	font-size:14px;
+}
+</style>
+<body>
+	<div id="users"></div>
+	<div id="userQuestions"></div>
+	
+	<section>
+		<div id="qns">
+		</div>
+	</section>
+	<section>
+		<ul id="sortedlist" class="sortable list">
+			
+		</ul>
+	</section>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/js/jeditable.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+	
+	
+	$( document ).ready(function() {
+	// alert('started');
+		$.ajax({
+					type:'POST',
+					url:'getUsrs.php',
+						success:function(res) {
+						var select ='<select name="users" id="usrs" onchange="getQns(this)"><option value=""></option>';
+							var usrs = res.split("|");
+
+							for(var person in usrs){
+								// console.log(person);
+								var nmeId = usrs[person].split(",");				
+								   select += '<option value="'+nmeId[1]+'">'+nmeId[0]+'</option>';
+							}
+							select += '</select>';
+							// console.log(select);
+
+								$("#users").html(select);
+									}				
+				});
+
+	});
+
+	function getQns(sel){
+		// alert(sel.value);
+
+		var uid = sel.value;
+		var dataString="uid="+uid;
+	            	$.ajax({
+	        					type:'POST',
+	        					data:dataString,
+	        					url:'getQz.php',
+	        						success:function(res) {
+										var allQns ="";
+										rdat = JSON.parse(res);
+										for(var x in rdat){
+											// console.log(rdat[x]['code']);
+											allQns += rdat[x]['code'];
+									
+											allQns += '<b class="editable_select" style="display: inline" id="'+rdat[x]['code']+',qnFlag">'+rdat[x]['qnFlag']+'</b>';
+											allQns += '<b class="dblclick" style="display: inline" id="'+rdat[x]['code']+',option1">'+rdat[x]['option1']+'</b>';
+											allQns += '<b class="dblclick" style="display: inline" id="'+rdat[x]['code']+',option2">'+rdat[x]['option2']+'</b>';
+											allQns += '<b class="dblclick" style="display: inline" id="'+rdat[x]['code']+',option3">'+rdat[x]['option3']+'</b>';
+											allQns += '<b class="dblclick" style="display: inline" id="'+rdat[x]['code']+',option4">'+rdat[x]['option4']+'</b>';
+											allQns += '<b class="dblclick" style="display: inline" id="'+rdat[x]['code']+',option5">'+rdat[x]['option5']+'</b>';											
+											allQns += '<br>';
+										}
+										
+											
+											$("#qns").html(allQns);
+											 $(".dblclick").editable("saveQzAnswers.php", { 
+											      indicator : "<img src='/images/loader.gif'>",
+											      tooltip   : "Doubleclick to edit...",
+											      event     : "dblclick",
+											      style  : "inherit"
+
+											});
+
+											$(".editable_select").editable("saveQzAnswers.php", { 
+											   indicator : '<img src="/images/loader.gif">',
+											   data   : "{'START':'START','END':'END','':'NOTHING'}",
+											   type   : "select",
+											   submit : "OK",
+											   style  : "inherit",
+											 });
+	        									}				
+	        				});
+	}
+	
+
+
+
+	</script>
+
+</body>
+</html>

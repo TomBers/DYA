@@ -1,0 +1,85 @@
+<script>
+
+// $( document ).ready(function() {
+	// console.log('hello');
+	// genCaptcha();
+// });
+
+function saveMessage(){
+
+	
+	
+	var name = $('#name').val();
+	var email = $('#email').val();
+	var cmmt = $('#comment').val();
+		var dataString = 'name='+name;
+		dataString += '&email='+email;
+		dataString += '&comments='+cmmt; 
+		// alert(dataString);
+		$.ajax({
+				    type:'POST',
+				    data:dataString,
+				    url:'/pages/saveContacts.php',
+				    success:function(res) {
+					alert('Thank you for your comment - it has been noted');
+				}
+				});
+}
+
+function genCaptcha(){
+	//Generates the captcha function
+	var a = Math.ceil(Math.random() * 9);
+	var b = Math.ceil(Math.random() * 9);
+	var c = Math.ceil(Math.random() * 9);
+	var d = Math.ceil(Math.random() * 9);
+	var e = Math.ceil(Math.random() * 9);
+	var code = a + b + c + d + e;
+	document.getElementById("txtCaptcha").value = code;
+	document.getElementById("txtCaptchaDiv").innerHTML = code;
+}
+
+
+// Validate the Entered input aganist the generated security code function
+function ValidCaptcha(){
+var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+var str2 = removeSpaces(document.getElementById('txtInput').value);
+if (str1 == str2){
+return true;
+}else{
+return false;
+}
+}
+// Remove the spaces from the entered and generated code
+function removeSpaces(string){
+return string.split('').join(',');
+}
+
+</script>
+
+<style>
+#contact{
+	width:50%;
+}
+</style>
+
+<div id="contact">
+<h1>Contact</h1>
+<br>
+<p>If you are interested in knowing more about DoYouAgree, or would like make a suggestion please get in touch using the form below.</p>
+<br>
+
+   <input type="text" class="form-control" name="name" id="name" placeholder="Name"/>
+   <input type="email" class="form-control" name="email" id="email" placeholder="E-mail"/>
+   <textarea class="form-control" rows="4" cols="50" id="comment" placeholder="Comments"></textarea>	
+	<br><br>	
+
+
+	
+	<input id="button" class="btn btn-lg btn-primary btn-block" type="submit" value="Send" onclick="saveMessage()"/>
+
+
+<div>
+	<br><br>
+<p>If you have any problems - please contact <a href="mailto:tom@doyouagree.co.uk">tom@doyouagree.co.uk</a></p>
+
+</div>
