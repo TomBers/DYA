@@ -37,7 +37,7 @@ $(".cmmt").each( function (index) {
 		$.ajax({
 						    type:'POST',
 							data:codeString,
-							url:'/UX/storeAndReturn.php',
+							url:'/LV/storeAndReturn.php',
 							success:function(res) {
 							json = JSON.parse(res);
 							if(json[0].qType == 'PIC'){
@@ -212,7 +212,7 @@ ul{
 <ul id="sortable2" class="sortable grid">
 	
 	<li>
-	<a class="twitter-timeline" href="https://twitter.com/DoYouAgreeApp" data-widget-id="443368990098718720">Tweets by @DoYouAgreeApp</a>
+	<a class="twitter-timeline" href="http://twitter.com/DoYouAgreeApp" data-widget-id="443368990098718720">Tweets by @DoYouAgreeApp</a>
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 	</li>
 	
@@ -253,11 +253,11 @@ foreach ($codes as &$cde){
 
 	}
 	else if($type == 'SLD'){
-	 echo "<li><div class=\"dbox\" id=\"$cde\"><p>$qn</p><iframe scrolling=\"no\" id=\"frame\" src=\"https://134.213.63.117:8000/?code=$cde&slider=true\"></iframe></div>";
+	 echo "<li><div class=\"dbox\" id=\"$cde\"><p>$qn</p><iframe scrolling=\"no\" id=\"frame\" src=\"http://134.213.63.117:8000/?code=$cde&slider=true\"></iframe></div>";
 		
 	}
 	else{
-	echo "<li><div class=\"dbox\" id=\"$cde\"><p>$qn</p><iframe scrolling=\"no\" id=\"frame\" src=\"https://134.213.63.117:8000/?code=$cde\"></iframe></div>";
+	echo "<li><div class=\"dbox\" id=\"$cde\"><p>$qn</p><iframe scrolling=\"no\" id=\"frame\" src=\"http://134.213.63.117:8000/?code=$cde\"></iframe></div>";
 		
 	}
 	$cnt++;

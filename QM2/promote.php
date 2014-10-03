@@ -81,7 +81,7 @@ stLight.options({publisher: "30b19eb7-9e7b-45e5-a058-70ab98f65639", doNotHash: t
 	<?php
 	echo "<div id=\"locationInfo\">Your ";
 	if($view == 'connect'){ echo "Survey : <a href=\"https://www.doyouagree.co.uk/$code\" target=\"_blank\">https://www.doyouagree.co.uk/$code</a></div>";}
-	if($view == 'liveview'){ echo "LiveView : <a href=\"https://www.doyouagree.co.uk/liveView/$code\" target=\"_blank\">https://www.doyouagree.co.uk/liveView/$code</a></div>";}
+	if($view == 'liveview'){ echo "LiveView : <a href=\"http://www.doyouagree.co.uk/liveView/$code\" target=\"_blank\">https://www.doyouagree.co.uk/liveView/$code</a></div>";}
 	if($view == 'quiz'){ echo "Quiz : <a href=\"https://www.doyouagree.co.uk/$code\">https://www.doyouagree.co.uk/$code</a><br>LeaderBoard : <a href=\"https://www.doyouagree.co.uk/quiz/leaderboard.php?quiz=$code\" target=\"_blank\">LeaderBoard</a></div>";}
 	
 	?>

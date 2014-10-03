@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <html lang="en">
 <head>
 	<meta name="keywords" content="Do You Agree, Agreement, Voting, Poll, Live Feedback">
@@ -13,7 +19,7 @@
 	<title>Do You Agree</title>
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href='/css/topBar.css' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+	<!-- <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>-->
 		<meta http-equiv="X-UA-Compatible" content="IE=9">
 </head>
 
@@ -25,13 +31,13 @@
 
 <!-- This is Google Analytics code -->
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-46011123-1', 'auto');
-  ga('send', 'pageview');
+  // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  //  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  //  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  // 
+  //  ga('create', 'UA-46011123-1', 'auto');
+  //  ga('send', 'pageview');
 
 </script>
 <!-- End of GA -->
@@ -53,9 +59,6 @@
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<?php
-					if (session_status() == PHP_SESSION_NONE) {
-					    session_start();
-					}
 					if( !isset( $_SESSION['DYA_id'])  ){ 
 						?>
 					

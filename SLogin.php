@@ -58,20 +58,29 @@ h1{
 
 <body>
 	<div class="container">
+		<h1>Please Login</h1>
 			<div class="row">
 			<div class="col-xs-6 col-md-offset-4 col-md-2">
-				<a href="auth.php?provider=Facebook"><img src="images/fb.png"></a>
+				<?php if(isset($_REQUEST['facebook'])){ ?>
+				<a href="/auth.php?provider=Facebook"><img src="/images/fb.png"></a>
+				<?php } ?>
 			</div>
 			<div class="col-xs-6 col-md-2">
-				<a href="auth.php?provider=Twitter"><img id="twitter" src="images/twitter.png"></a>
+				<?php if(isset($_REQUEST['twitter'])){ ?>
+				<a href="/auth.php?provider=Twitter"><img id="twitter" src="/images/twitter.png"></a>
+				<?php } ?>
 			</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-6 col-md-offset-4 col-md-2">
-			<a href="auth.php?provider=Google"><img src="images/google.png"></a>
+			<?php if(isset($_REQUEST['google'])){ ?>
+			<a href="/auth.php?provider=Google"><img src="/images/google.png"></a>
+			<?php } ?>
 			</div>
 			<div class="col-xs-6 col-md-2">
-			<a href="linkedIn.php"><img src="images/linkedin.jpg"></a>
+				<?php if(isset($_REQUEST['linkedin'])){ ?>
+			<a href="/linkedIn.php"><img src="/images/linkedin.jpg"></a>
+			<?php } ?>
 		</div>
 	</div>
 		<div class='col-xs-12 col-md-offset-3 col-md-6' id="emailSignup">

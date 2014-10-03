@@ -7,6 +7,8 @@ $pg = strtolower($_REQUEST['code']);
 
 $exists = $pg.'_exists';
 
+
+if(isset($_REQUEST['askLogin'])){$auth = $_REQUEST['askLogin'];}else{$auth ='bill';}
 if(isset($_REQUEST['preview'])){$preview = $_REQUEST['preview'];}else{$preview=0;}
 if(isset($_SESSION['DYA_id'])){$user = $_SESSION['DYA_id'];}else{$user=-1;}
 

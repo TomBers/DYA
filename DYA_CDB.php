@@ -2,9 +2,13 @@
 error_reporting(E_ERROR | E_PARSE); 
 
     // phpinfo(); 
-    $THE_HOST = "2340d350c269f9aa5de101d9842d904fc1aa3c82.rackspaceclouddb.com";
-    $THE_USER = "atdesign";
-    $THE_PWD = "TLdjdACu6R69";
+    // $THE_HOST = "2340d350c269f9aa5de101d9842d904fc1aa3c82.rackspaceclouddb.com";
+    //     $THE_USER = "atdesign";
+    //     $THE_PWD = "TLdjdACu6R69";
+
+	$THE_HOST = "localhost";
+    $THE_USER = "root";
+    $THE_PWD = "root";
     $THE_DB = "dya";
         
         // 

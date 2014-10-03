@@ -1,7 +1,10 @@
 <?php
 error_reporting(E_ALL);
-
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
 $j = $_POST['pg'];
+
 if(isset($_POST['div'])){
 	$div = $_POST['div'];
 }else {$div="drawArea"; }
@@ -9,40 +12,83 @@ if(isset($_POST['preview'])){
 	$preview = $_POST['preview'];
 }else {$preview = 0;}
 
-$mem = new Memcached();
-$mem->addServer("127.0.0.1", 11211);
+// $mem = new Memcached();
+// $mem->addServer("127.0.0.1", 11211);
+// 
+// $cache = $mem->get(strtolower($j));
+// 
+// if($cache){
+// 	// print_r($cache);
+// 	$qType = $cache['qType'];
+// 		$next = $cache['agreeNext'];
+// 		$active = $cache['active'];
+// 		$draw = $cache['draw'];
+// 		$sldURL = $cache['sliderURL'];
+// 		$sldText = $cache['sliderText'];
+// 		$draw = $cache['draw'];
+// 		$options = $cache['options'];
+// 		$qn = $cache['questionHTML'];
+// 		$end = $cache['end'];
+// 		$login = $cache['login'];	
+// 	
+// }else{
 
-$cache = $mem->get(strtolower($j));
+	$THE_HOST = "2340d350c269f9aa5de101d9842d904fc1aa3c82.rackspaceclouddb.com";
+    $THE_USER = "atdesign";
+    $THE_PWD = "TLdjdACu6R69";
+    $THE_DB = "dya";
 
-if($cache){
-	// print_r($cache);
-	$qType = $cache['qType'];
-		$next = $cache['agreeNext'];
-		$draw = $cache['draw'];
-		$sldURL = $cache['sliderURL'];
-		$sldText = $cache['sliderText'];
-		$draw = $cache['draw'];
-		$options = $cache['options'];
-		$qn = $cache['questionHTML'];	
-	
-}else{
-	include "../DYA_CDB.php";	
+		$db = new MYSQLi($THE_HOST,$THE_USER,$THE_PWD,$THE_DB);
+        if (!$db) { 
+             die('Could not connect to the database: '.mysqli_connect_error() ); 
+        }	
 
 	mysqli_query($db,"SET NAMES utf8;");
-	$query="SELECT questionHTML,qType,agreeNext,draw,sliderURL,sliderText,draw,options FROM `questions` WHERE `code`='$j' LIMIT 1;";
+	$query="SELECT questionHTML,qType,active,agreeNext,draw,sliderURL,sliderText,draw,options,end,login FROM `questions` WHERE `code`='$j' LIMIT 1;";
 
 	$result = mysqli_query($db, $query);
 	$row = mysqli_fetch_assoc($result); 
 	$qType = $row['qType'];
+	$active = $row['active'];
 	$next = $row['agreeNext'];
 	$draw = $row['draw'];
 	$sldURL = $row['sliderURL'];
 	$sldText = $row['sliderText'];
-	$draw = $row['draw'];
 	$options = $row['options'];
 	$qn = $row['questionHTML'];
+	$end = $row['end'];
+	$login = $row['login'];
 	
-	$mem->set(strtolower($j),$row) or die("Couldn't save anything to memcached...");
+	// $mem->set(strtolower($j),$row) or die("Couldn't save anything to memcached...");
+// }
+
+$lgnop = json_decode($login);
+
+
+// Deal with User inteaction and active 
+
+if($active != 1 || $qType == ""){
+	
+
+	echo "<br><br>Question Does not exist or is not active - please check your link";
+
+}else if($lgnop->{'force'} == 1 && !isset($_SESSION['DYA_id'])){
+	$loginChain ="?redirect=$j";
+	if($lgnop->{'fb'}){$loginChain .='&facebook=true';}
+	if($lgnop->{'twitter'}){$loginChain .='&twitter=true';}
+	if($lgnop->{'google'}){$loginChain .='&google=true';}
+	if($lgnop->{'linkedin'}){$loginChain .='&linkedin=true';}
+	// echo $loginChain;
+	
+		
+	header('Location: https://www.doyouagree.co.uk/SLogin.php'.$loginChain);
+	
+	
+}else{
+
+if($end == 1){
+	unset($_COOKIE['usrLstQn']);
+	unset($_COOKIE['currentQz']);
 }
 
 echo '<div id="wrapper">';
@@ -51,7 +97,7 @@ echo '<div id="sliderHint"></div> </div>';
 
 switch($qType){
 	case "LND":
-	writeLND($j,$div,$draw,$sldURL,$sldText,$preview);
+	writeLND($j,$div,$preview);
 	break;
 	case "SLD":
 	writeSLD($j,$div,$draw,$sldURL,$sldText,$preview);
@@ -73,7 +119,7 @@ switch($qType){
 	break;
 
 	}
-
+}
 	function writeQZ($j,$options,$div,$draw,$preview){
 		$options = json_decode($options);
 		echo "<div id=\"formElements\">";
@@ -84,7 +130,7 @@ switch($qType){
 		echo "</div>";
 		if(!$preview) echo "<div class=\"btn btn-lg btn-primary btn-block\" style=\"width:40%;margin:0 auto;\" onclick=\"quizForm('$j','$div','$draw')\" >Answer</div>"; 
 	}
-	
+
 	function writeLND($j,$div,$preview){
 		if(!$preview) echo "<div class=\"btn btn-lg btn-primary btn-block\" style=\"width:40%;margin:0 auto;\" onclick=\"validateForm('$j','LND','$div','0')\" >Start</div>";
 	}

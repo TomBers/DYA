@@ -32,14 +32,14 @@ if ($typ == 'liveview'){
 			$b = $inData[$i+1];
 			// echo "Link $a to $b \n";
 			// echo "UPDATE  `contacts`.`questions` SET  `agreeNext` =  '$b' WHERE  `questions`.`code` ='$a' \n";
-			$sql = "UPDATE  `dya`.`questions` SET  `agreeNext` =  '$b', `group` = '$dashcode' WHERE  `questions`.`code` ='$a';";
+			$sql = "UPDATE  `dya`.`questions` SET  `agreeNext` =  '$b', `group` = '$dashcode',`end` = '0' WHERE  `questions`.`code` ='$a';";
 			$result = mysqli_query($db,$sql);
 
 		}
 		$indx = count($inData) - 1;
 			$last = $inData[$indx];
-			$exitCode = 'http://www.doyouagree.co.uk/pages/thankyou.html';
-			$updateLast = "UPDATE  `dya`.`questions` SET `agreeNext` = '$exitCode',`group` = '$dashcode' WHERE  `questions`.`code` ='$last';";
+			$exitCode = 'https://www.doyouagree.co.uk/pages/thankyou.html';
+			$updateLast = "UPDATE  `dya`.`questions` SET `agreeNext` = '$exitCode',`group` = '$dashcode',`end` = '1' WHERE  `questions`.`code` ='$last';";
 			$result = mysqli_query($db,$updateLast);
 		
 		if($typ == 'quiz'){

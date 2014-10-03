@@ -69,6 +69,7 @@ function setupQnParameters() {
 
 <div class="container">
 	<h2><strong>Step 1 : </strong> What Question Do you wish to ask?</h2>
+	<img data-src='holder.js/110x110/text:Landing Page' id='LND'>
 	<img data-src='holder.js/110x110/text:Slider' id='SLD'>
 	<img data-src='holder.js/110x110/text:Single Choice' id='RDO'>
 	<img data-src='holder.js/110x110/text:Multiple Choice' id='CHK'>

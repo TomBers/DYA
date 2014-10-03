@@ -1,5 +1,6 @@
 <!DOCTYPE html>	
 		<?php 
+		
 		include('topBar.php');
 	//	include('pages/slider.html');
 		include('pages/marketingBar.html'); 	
@@ -8,7 +9,7 @@
 		include('pages/examples.html');
 		// include('pages/industries.html');  
 		include('pages/team.html'); 
- 		include('pages/joinToday.html');
+	 		include('pages/joinToday.html');
 		include('pages/contact.html');
 	 	include('pages/footer.html'); 
 	?>

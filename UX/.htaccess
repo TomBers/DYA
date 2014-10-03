@@ -1,0 +1,5 @@
+Options +FollowSymLinks
+# Enable Rewriting
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteRule .* https://www.doyouagree.co.uk%{REQUEST_URI} [last]

@@ -30,13 +30,13 @@
 	
 		<script src="https://code.jquery.com/jquery-latest.min.js"></script>	
 		<script src="/socket.io/lib/socket.io.js"></script>
-		<script src="https://www.doyouagree.co.uk/js/Chart.js"></script>
+		<script src="http://www.doyouagree.co.uk/js/Chart.js"></script>
 		<script src="https://www.doyouagree.co.uk/UX/dya.js"></script>
 
 	<script>
 
 		// creating a new websocket
-	  	var socket = io.connect('https://www.doyouagree.co.uk:8000/');
+	  	var socket = io.connect('http://www.doyouagree.co.uk:8000/');
 		var oldData = 0;
 		
 		socket.on('connect', function () {
@@ -86,5 +86,5 @@
 		<div id="image_key"></div>
 
 	</body>
-	<link href='https://www.doyouagree.co.uk/css/andreea.css' rel='stylesheet' type='text/css'>
+	<link href='http://www.doyouagree.co.uk/css/andreea.css' rel='stylesheet' type='text/css'>
 </html>

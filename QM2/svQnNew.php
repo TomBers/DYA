@@ -131,7 +131,7 @@ else{
 
 
 	
-	$next = "http://www.doyouagree.co.uk/pages/thankyou.html";
+	$next = "https://www.doyouagree.co.uk/pages/thankyou.html";
 
 
 	$user = $_SESSION['DYA_id'];

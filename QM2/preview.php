@@ -47,7 +47,7 @@ else{
 
 			<br><a href="http://www.doyouagree.co.uk/<?php echo $code;?>" target="_blank">DoYouAgree.co.uk/<?php echo $code;?></a>
 			<br><br>
-			<button type="button" id="askAnother" class="btn btn-success" onclick="javascript:location.href='http://www.doyouagree.co.uk/QM2/cQn.php?new=true&ModPagespeed=off'">Create Another Question</button><br><br>
+			<button type="button" id="askAnother" class="btn btn-success" onclick="javascript:location.href='https://www.doyouagree.co.uk/QM2/cQn.php?new=true&ModPagespeed=off'">Create Another Question</button><br><br>
 			<p>Or start linking the questions below to create a survey</p>
 			<!-- <button type="button" class="btn btn-info" onclick="loadTool('link')">Link your Questions</button> -->
 		</div>

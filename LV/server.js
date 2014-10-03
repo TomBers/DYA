@@ -1,12 +1,7 @@
-var fs = require('fs');
-var options = {
-  key: fs.readFileSync('/root/doyouagree.co.uk.ssl/doyouagree.co.uk.key'),
-  cert: fs.readFileSync('/root/doyouagree.co.uk.ssl/doyouagree.co.uk.crt')
-};
-
-var app					= require('https').createServer(options,handler),
+var app					= require('http').createServer(handler),
 	io					= require('socket.io').listen(app),
 	util					= require('util'),
+	fs 					= require('fs'),
 	url					= require('url'),
 	mysql				= require('mysql'),
 	connectionsArray	= [],

@@ -1,12 +1,20 @@
-#Options +FollowSymLinks
+Options +FollowSymLinks
 # Enable Rewriting
 RewriteEngine on
+RewriteRule ^liveView/(\w+)?$ LV/lv.php?code=$1
 
-#RewriteCond %{HTTPS} off
-#RewriteRule .* https://www.doyouagree.co.uk%{REQUEST_URI} [last] 
+# RewriteCond %{HTTP_HOST} ^(^.*)\.doyouagree.co.uk
+# RewriteRule (.*)  UX/DYA_SV.php?code=%1
+
+RewriteCond %{HTTPS} off
+RewriteRule .* https://www.doyouagree.co.uk%{REQUEST_URI} [last] 
+# Rewrite user URLs
+#   Input:  user/NAME/
+#   Output: user.php?id=NAME
+
 
 RewriteRule ^ask QM2/cQn.php?new=true&ModPagespeed=off
-RewriteRule ^liveView/(\w+)?$ LV/lv.php?code=$1
+RewriteRule ^LV/(\w+)?$ https://134.213.63.117:8000/?code=$1
 RewriteRule ^answer UX/index.php
 RewriteRule ^dashboard DshBD/analytics.php
 RewriteRule ^prices pages/prices.php
